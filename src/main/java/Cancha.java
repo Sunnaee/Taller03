@@ -1,19 +1,20 @@
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Cancha {
 	private String nombreCancha;
 	private String tipoSuperficie;
 	private String ubicacion;
 	private int capacidadEspectadores;
-	private boolean reservada;
+	private Date fecha;
 	private ArrayList<Partido> partidos = new ArrayList<Partido>();
 
-	public Cancha(String nombreCancha, String tipoSuperficie, String ubicacion, int capacidadEspectadores, boolean reservada, ArrayList<Partido> partidos){
+	public Cancha(String nombreCancha, String tipoSuperficie, String ubicacion, int capacidadEspectadores, Date fecha, ArrayList<Partido> partidos){
 		this.nombreCancha = nombreCancha;
 		this.tipoSuperficie = tipoSuperficie;
 		this.ubicacion = ubicacion;
 		this.capacidadEspectadores = capacidadEspectadores;
-		this.reservada = reservada;
+		this.fecha = fecha;
 		this.partidos = partidos;
 	}
 
@@ -49,16 +50,12 @@ public class Cancha {
 		this.capacidadEspectadores = capacidadEspectadores;
 	}
 
-	public boolean getReservada() {
-		return this.reservada;
-	}
-
-	public void setReservada(boolean reservada) {
-		this.reservada = reservada;
-	}
-
 	public ArrayList<Partido> obtenerPartidos(){
 		return this.partidos;
+	}
+
+	public Date obtenerFecha(){
+		return this.fecha;
 	}
 
 	public boolean agregarPartido(Partido partido){

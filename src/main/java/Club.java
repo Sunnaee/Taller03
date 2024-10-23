@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class Club {
 	private ArrayList<Equipo> equipos = new ArrayList<Equipo>();
@@ -50,15 +51,29 @@ public class Club {
 
 	public boolean crearPartido(Equipo equipoP, Equipo equipoR, Cancha cancha, Date fecha) {
 		Partido partido = new Partido("",fecha,cancha,equipoR,equipoP);
-		partidos.add(partido);
-		cancha.agregarPartido(partido);
+		for (Partido partidosEnLista : this.partidos){
+			if (partido == partidosEnLista){
+				return false;
+			}
+		}
+		if (canchaDisponible(fecha, cancha)){
+			partidos.add(partido);
+			cancha.agregarPartido(partido);
+			return true;
+		}
+		return false;
 	}
 
-	public boolean canchaDisponible(Cancha cancha) {
-		return cancha.getReservada();
+	public boolean canchaDisponible(Date fecha, Cancha cancha) {
+		Date fechaActual = new Date();
+		return cancha.obtenerFecha().equals(fechaActual);
 	}
 
 	public boolean asignarResultado(String resultado, Partido partido) {
+		if (Objects.equals(partido.getResultado(), resultado)){
+			return false;
+		}
 		partido.setResultado(resultado);
+		return true;
 	}
 }

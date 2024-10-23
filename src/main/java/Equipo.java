@@ -25,8 +25,10 @@ public class Equipo {
 
 	public boolean agregarDeportista(Deportista deportista) {
 		for (Deportista deportistaEnLista : this.deportistas){
-			if (deportistaEnLista == deportista){
-				return false;
+			if (deportistaEnLista != null) {
+				if (deportistaEnLista == deportista) {
+					return false;
+				}
 			}
 		}
 		deportistas.add(deportista);
