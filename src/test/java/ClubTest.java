@@ -45,26 +45,31 @@ class ClubTest {
 
     @Test
     void registrarEquipo() {
-        assertFalse();
+        assertTrue(club.registrarEquipo(equipo1));
     }
 
     @Test
     void registrarDeportista() {
+        assertTrue(club.registrarDeportista(equipo1,deportista1));
     }
 
     @Test
     void registrarEntrenador() {
+        assertTrue(club.registrarEntrenador(equipo1,entrenador));
     }
 
     @Test
     void crearPartido() {
+        assertFalse(club.crearPartido(equipo1,equipo2,cancha,fecha1));
     }
 
     @Test
     void canchaDisponible() {
+        assertFalse(club.canchaDisponible(fecha2,cancha));
     }
 
     @Test
     void asignarResultado() {
+        assertTrue(club.asignarResultado("resultado1",partido));
     }
 }
