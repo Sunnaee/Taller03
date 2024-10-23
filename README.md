@@ -3,6 +3,7 @@
 ###### Estudiante: Sabrina López.
 ***
 ### Clases:
+- Club.
 - Deportista.
 - Deporte.
 - Entrenador.
